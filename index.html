@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f6f3" />
+  <meta name="description" content="A thoughtful little color discovery quiz. Find the shades that feel like you." />
+  <title>Hue & Form — Find your colors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Hue and Form home"><span class="brand-mark">h</span><span>hue <i>&</i> form</span></a>
+    <div class="top-note"><span class="live-dot"></span> A little color clarity, made for you</div>
+    <button class="text-button" id="startTop">Find your palette <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <main>
+    <section class="screen welcome active" id="welcome" aria-labelledby="welcomeTitle">
+      <div class="welcome-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> YOUR PERSONAL COLOR STORY</p>
+        <h1 id="welcomeTitle">Hi there.<br>Let’s find the <em>colors</em><br>that feel like you.</h1>
+        <p class="intro">A few thoughtful questions about your features, your world, and what you love. Then, a palette that brings it all together.</p>
+        <div class="welcome-actions"><button class="primary-button" id="beginQuiz">Get my color story <span>→</span></button><span class="time-note">7 quick questions <b>·</b> about 2 minutes</span></div>
+        <div class="trust-note"><span class="sparkle">✳</span> No rules. No wrong answers. Just a little inspiration.</div>
+      </div>
+      <div class="hero-art" aria-label="A collection of softly colored fabric swatches">
+        <div class="art-caption"><span>YOUR COLORS,</span><span>IN GOOD COMPANY.</span></div>
+        <div class="swatch-stack">
+          <div class="fabric fabric-one"><span>01</span></div><div class="fabric fabric-two"><span>02</span></div><div class="fabric fabric-three"><span>03</span></div><div class="fabric fabric-four"><span>04</span></div><div class="fabric fabric-five"><span>05</span></div>
+        </div>
+        <div class="hero-art-foot"><span>AN EXERCISE IN SELF-EXPRESSION</span><span>EST. FOR EVERYDAY YOU&nbsp; ✳</span></div>
+      </div>
+      <div class="welcome-bottom"><span>01 — A MORE COLORFUL YOU</span><span>SCROLL TO EXPLORE <b>↓</b></span></div>
+    </section>
+
+    <section class="screen quiz" id="quiz" aria-labelledby="quizTitle" hidden>
+      <div class="quiz-shell">
+        <div class="quiz-top"><button class="back-button" id="backButton" aria-label="Go back">← <span>Back</span></button><span class="step-count" id="stepCount">01 <i>/</i> 07</span><button class="exit-button" id="exitQuiz">Exit quiz <span>×</span></button></div>
+        <div class="progress-track"><div id="progressFill"></div></div>
+        <div class="quiz-content"><p class="eyebrow" id="questionCategory">THE DETAILS</p><h2 id="quizTitle"></h2><p class="question-sub" id="questionSub"></p><div class="answer-grid" id="answerGrid"></div><div class="quiz-foot"><span><span class="sparkle">✳</span> Go with your first instinct</span><button class="next-button" id="nextButton" disabled>Continue <span>→</span></button></div></div>
+      </div>
+      <div class="quiz-decoration"><span>COLOR IS A FEELING</span><div class="mini-palette"><i></i><i></i><i></i><i></i><i></i></div><span>TAKE YOUR TIME</span></div>
+    </section>
+
+    <section class="screen result" id="result" hidden aria-labelledby="resultTitle">
+      <div class="result-header"><div><p class="eyebrow"><span class="eyebrow-line"></span> YOUR COLOR STORY IS HERE</p><h2 id="resultTitle">The <em id="seasonName">Soft Autumn</em> palette</h2><p class="result-intro" id="resultIntro"></p></div><button class="outline-button" id="retakeButton">↻ <span>Retake quiz</span></button></div>
+      <div class="result-meta"><span id="resultMood">WARM · SOFT · GROUNDED</span><span><b>01</b> / YOUR PERSONAL PALETTE</span></div>
+      <div class="palette-grid" id="paletteGrid"></div>
+      <div class="result-bottom"><div class="result-note"><span class="note-icon">✳</span><div><strong>A note on color</strong><p>Your palette is a starting point, not a set of rules. Wear what makes you feel most like yourself.</p></div></div><button class="share-button" id="copyPalette">Copy palette <span>↗</span></button></div>
+      <section class="inspiration"><div class="inspiration-heading"><div><p class="eyebrow">A FEW WAYS TO WEAR IT</p><h3>Little color, <em>big feeling.</em></h3></div><div class="carousel-controls"><button id="carouselPrev" aria-label="Scroll left">←</button><button id="carouselNext" aria-label="Scroll right">→</button></div></div><div class="idea-track" id="ideaTrack"></div></section>
+      <footer class="page-footer"><a class="brand" href="#home"><span class="brand-mark">h</span><span>hue <i>&</i> form</span></a><span>MADE TO HELP YOU SEE YOURSELF IN COLOR</span><button id="restartButton">Start again ↑</button></footer>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
